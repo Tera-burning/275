@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         //db연동 테스트 나중에 삭제할 것
+        //tlqkf 혼자 삽질함
 
         Button button1 = (Button)findViewById(R.id.btn_group);
         button1.setOnClickListener(new View.OnClickListener() {
