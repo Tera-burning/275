@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:background="@color/backColor">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:layout_marginLeft="10dp"
+           android:text="선택한 그룹:"
+           android:textColor="@color/whiteColor"
+           android:textSize="30dp"></TextView>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:layout_marginLeft="10dp"
+           android:text="8월 지옥"
+           android:textColor="@color/orange"
+           android:textSize="30dp"></TextView>
+        </LinearLayout>
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_marginTop="15dp"
+           android:layout_height="2px"
+           android:background="@color/whiteColor"/>
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="100dp"
+               android:layout_marginLeft="40dp"
+               android:orientation="horizontal">
+
+               <Button
+                   android:id="@+id/btn_group"
+                   android:layout_width="150dp"
+                   android:layout_height="75dp"
+                   android:layout_marginRight="30dp"
+                   android:text=" 내가 속한 그룹"
+                   android:textColor="@color/whiteColor"
+                   android:background="@drawable/custombutton_green"
+                   android:textSize="18dp"></Button>
+               <Button
+                   android:id="@+id/btn_groupchecklist"
+                   android:layout_width="150dp"
+                   android:layout_height="75dp"
+                   android:text=" 그룹 체크리스트"
+                   android:textColor="@color/whiteColor"
+                   android:background="@drawable/custombutton_green"
+                   android:textSize="17dp"></Button>
+           </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="25dp"
+           android:layout_marginLeft="40dp"
+           android:orientation="horizontal">
+
+           <Button
+               android:id="@+id/perchecklist"
+               android:layout_width="150dp"
+               android:layout_height="75dp"
+               android:layout_marginRight="30dp"
+               android:text=" 개인 체크리스트"
+               android:textColor="@color/whiteColor"
+               android:background="@drawable/custombutton_orange"
+               android:textSize="18dp"></Button>
+           <Button
+               android:id="@+id/calender"
+               android:layout_width="150dp"
+               android:layout_height="75dp"
+               android:text=" 캘린더 보기"
+               android:textColor="@color/whiteColor"
+               android:background="@drawable/custombutton_orange"
+               android:textSize="17dp"></Button>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="25dp"
+           android:layout_marginLeft="40dp"
+           android:orientation="horizontal">
+
+           <Button
+               android:id="@+id/timer"
+               android:layout_width="150dp"
+               android:layout_height="75dp"
+               android:layout_marginRight="30dp"
+               android:text=" 공부 타이머"
+               android:textColor="@color/whiteColor"
+               android:background="@drawable/custombutton_orange"
+               android:textSize="18dp"></Button>
+           <Button
+               android:id="@+id/diary"
+               android:layout_width="150dp"
+               android:layout_height="75dp"
+               android:layout_marginRight="10dp"
+               android:text=" 나의 일기장"
+               android:textColor="@color/whiteColor"
+               android:background="@drawable/custombutton_orange"
+               android:textSize="18dp"></Button>
+
+       </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
