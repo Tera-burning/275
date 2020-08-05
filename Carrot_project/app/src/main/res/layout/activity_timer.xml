@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backColor"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="오늘의 공부량"
+                android:textColor="@color/whiteColor"
+                android:textSize="30dp"></TextView>
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_marginTop="15dp"
+                 android:layout_height="2px"
+                 android:background="@color/whiteColor"/>
+        </LinearLayout>
+
+
+        //타이머 내용 코드 넣을 곳....^^
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
