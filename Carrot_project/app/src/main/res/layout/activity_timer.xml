@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimerActivity">
+    tools:context=".TimerActivity"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,8 +35,44 @@
         </LinearLayout>
 
 
-        //타이머 내용 코드 넣을 곳....^^
+        <TextView
+            android:id="@+id/timer_output"
+            android:layout_width="match_parent"
+            android:layout_height="314dp"
+            android:gravity="center"
+            android:text="00:00:00"
+            android:textColor="@color/whiteColor"
+            android:textSize="50sp"
 
+            />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+        <Button
+            android:layout_width="326dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:text="시작"
+            android:id="@+id/start_btn"
+            android:onClick="OnClick"
+            android:textColor="@color/whiteColor"
+            android:background="@drawable/custombutton_green"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:layout_width="326dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:text="그래프"
+            android:id="@+id/stop_btn"
+            android:onClick="OnClick"
+            android:textColor="@color/whiteColor"
+            android:background="@drawable/custombutton_orange"
+            />
+</LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
