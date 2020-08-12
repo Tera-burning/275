@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ChartActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/backColor"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:id="@+id/sample_s"
+            android:text="시간 변환 확인용!"
+            android:textColor="@color/whiteColor"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:id="@+id/sample_m"
+            android:text="시간 변환 확인용!"
+            android:textColor="@color/whiteColor"
+            />
+    <com.github.mikephil.charting.charts.BarChart
+
+        android:id="@+id/Barchart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
