@@ -15,22 +15,32 @@
             android:layout_width="match_parent"
             android:layout_height="46dp">
             <TextView
-                android:id="@+id/userid"
+                android:id="@+id/textviewUserEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginLeft="14dp"
                 android:textColor="@color/whiteColor"
-                android:text="TestID"
+                android:text=""
                 android:textSize="20dp"></TextView>
             <Button
+                android:id="@+id/buttonLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="7dp"
                 android:textColor="@color/whiteColor"
                 android:background="@drawable/custombutton_orange"
                 android:text="로그아웃"></Button>
+            <Button
+                android:id="@+id/textviewDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="7dp"
+                android:textColor="@color/whiteColor"
+                android:background="@drawable/custombutton_orange"
+                android:text="회원탈퇴"></Button>
         </LinearLayout>
 
         <View
