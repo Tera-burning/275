@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="뿌요~"
             android:textColor="@color/green"
             android:textSize="30sp" />
@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="의 체크리스트"
             android:textColor="@color/whiteColor"
             android:textSize="30sp" />
@@ -36,19 +36,31 @@
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:layout_below="@+id/name"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/whiteColor" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:layout_centerInParent="true"
+        android:onClick="mOnClick_DatePick"
+        android:textColor="@color/whiteColor"
+        android:textSize="25sp" />
 
     <ListView
         android:id="@+id/perlistview"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_below="@+id/line"
-        android:textColor="@color/whiteColor"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:choiceMode="multipleChoice"
+        />
 
 
     <EditText
-        android:id="@+id/EEE"
+        android:id="@+id/editdo"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
