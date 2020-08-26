@@ -33,15 +33,13 @@ public class ChecklistAdapter extends BaseAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.perchecklist_listview_item, parent, false);
+            convertView = inflater.inflate(R.layout.perchecklist_item, parent, false);
         }
-        TextView checklistView = (TextView) convertView.findViewById(R.id.text);
-        CheckBox checkboxView = (CheckBox) convertView.findViewById(R.id.box);
+        TextView textTextView = (TextView) convertView.findViewById(R.id.textView1);
 
         ListViewItem listViewItem = listViewItemList.get(position);
 
-        checklistView.setText(listViewItem.getCheckList());
-        //checkboxView.setChecked(listViewItem.getCheck());
+        textTextView.setText(listViewItem.getText());
 
         return convertView;
     }
@@ -60,10 +58,13 @@ public class ChecklistAdapter extends BaseAdapter {
     public void addItem(String TEXT){
         ListViewItem item=new ListViewItem();
 
-        item.setChecklist(TEXT);
-        //item.setCheck(BOX);
+        item.setText(TEXT);
 
         listViewItemList.add(item);
+    }
+    public void clear() {
+        listViewItemList.clear();
+        notifyDataSetChanged();
     }
 
 }
