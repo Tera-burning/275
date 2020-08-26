@@ -55,12 +55,12 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="300dp"
             android:layout_marginLeft="7dp">
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내가 속한 그룹"
                 android:textSize="30dp"
-                android:textColor="@color/whiteColor"></TextView>
+                android:textColor="@color/whiteColor"></EditText>
         </LinearLayout>
 
         <View

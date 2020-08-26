@@ -15,15 +15,15 @@
             android:layout_width="match_parent"
             android:layout_marginTop="30dp"
             android:layout_height="46dp">
-            <TextView
-                android:id="@+id/userid"
+            <EditText
+                android:id="@+id/groupname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/whiteColor"
-                android:text=" (그룹 이름을 설정하세요)"
-                android:textSize="30dp"></TextView>
+                android:text=" "
+                android:textSize="30dp"></EditText>
         </LinearLayout>
 
         <View
@@ -37,13 +37,35 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="300dp"
-            android:layout_marginLeft="7dp">
-            <TextView
+            android:layout_marginLeft="7dp"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/memberID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="초대할 아이디 정보들"
+                android:hint="초대할 사람의 email 입력"
+                android:textColorHint="#c3c3c3"
                 android:textSize="30dp"
-                android:textColor="@color/whiteColor"></TextView>
+                android:backgroundTint="@color/backColor"
+                android:textColor="@color/whiteColor"></EditText>
+            <EditText
+                android:id="@+id/memberID2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="초대할 사람의 email 입력"
+                android:textColorHint="#c3c3c3"
+                android:textSize="30dp"
+                android:backgroundTint="@color/backColor"
+                android:textColor="@color/whiteColor"></EditText>
+            <EditText
+                android:id="@+id/memberID3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="초대할 사람의 email 입력"
+                android:textColorHint="#c3c3c3"
+                android:textSize="30dp"
+                android:backgroundTint="@color/backColor"
+                android:textColor="@color/whiteColor"></EditText>
         </LinearLayout>
 
         <View
@@ -52,14 +74,30 @@
             android:layout_height="2px"
             android:background="@color/whiteColor"/>
 
-        <Button
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="10dp"
-            android:textSize="23dp"
-            android:textColor="@color/whiteColor"
-            android:background="@drawable/custombutton_green"
-            android:text="생성"></Button>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+         <Button
+                android:id="@+id/addIDbutton"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="10dp"
+                android:textSize="23dp"
+                android:textColor="@color/whiteColor"
+                android:background="@drawable/custombutton_green"
+                android:text="ID 추가"></Button>
+
+            <Button
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:textSize="23dp"
+                android:textColor="@color/whiteColor"
+                android:background="@drawable/custombutton_green"
+                android:text="생성"></Button>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

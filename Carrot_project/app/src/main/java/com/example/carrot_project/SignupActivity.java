@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,9 +15,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.core.Tag;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -27,6 +36,9 @@ public class SignupActivity extends AppCompatActivity {
     TextView textviewMessage;
     ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth;
+    private User user;
+    private FirebaseFirestore db;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +46,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){ // 데베에 맞는 유저가 있으면 -> 그룹 선택 창으로 이동
             finish();
@@ -65,7 +78,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void registerUser(){
-        String email = editTextEmail.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
@@ -82,7 +95,13 @@ public class SignupActivity extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
+
                 if (task.isSuccessful()) {
+                    String username = editTextEmail.getText().toString().trim();
+                   DocumentReference Userinfo = db.collection("User").document("Userinfor");
+                   Userinfo.update("Username", FieldValue.arrayUnion(username));
+
                     finish();
                     startActivity(new Intent(getApplicationContext(), Select_group_Activity.class));
                 }
@@ -93,6 +112,8 @@ public class SignupActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
+
+
     }
 
     public void onClick(View view){
