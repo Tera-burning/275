@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -47,7 +48,8 @@ public class TimerActivity extends AppCompatActivity {
 
     final static int NONE = 0;
     final static int SEARCH = 1;
-    int dbExist = SEARCH;
+    final static int EXIST = 2;
+    int dbExist = NONE;
 
 
 
@@ -132,9 +134,38 @@ public class TimerActivity extends AppCompatActivity {
                 intent.putExtra("time",sId);
                 intent.putExtra("ID",userID);
                 intent.putExtra("day",mStudyTime);
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                db.collection("study")
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                DocumentReference docID= db.collection("Study").document(userID);
+                docID.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                Log.d("ID exist", ": "+ document.getData());
+                            } else {
+                                Log.d("No such document", "아이디 기록이 없네요 생성할게요^^");
+                                mtimedata = new StudytimeData(mDay, Integer.toString(mStudyTime));
+                                FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                DocumentReference sample = db2
+                                        .collection("study").document(userID)
+                                        .collection("studytime").document(mDay);
+                                sample.set(mtimedata);
+                                dbExist = EXIST;
+
+                            }
+                        } else {
+                            Log.d("ERROR", "오류가 났어요 ", task.getException());
+                        }
+                    }
+                });
+
+
+
+            FirebaseFirestore timedb = FirebaseFirestore.getInstance();
+                timedb.collection("study")
                         .document(userID)
                         .collection("studytime")
                         .get()
@@ -149,7 +180,7 @@ public class TimerActivity extends AppCompatActivity {
                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                         String dbDay = document.getId();
                                         if(dataCount == 1) {
-                                            dbExist = NONE;
+                                            dbExist = EXIST;
                                         }
                                         dataCount--;
                                         if(dbDay.equals(mDay))
@@ -193,7 +224,8 @@ public class TimerActivity extends AppCompatActivity {
                                     }
 
                                 } else {
-                                    Log.d("Error ", "오류가 나써요", task.getException());
+
+
                                 }
                             }
                         });
