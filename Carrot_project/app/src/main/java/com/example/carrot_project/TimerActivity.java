@@ -47,7 +47,7 @@ public class TimerActivity extends AppCompatActivity {
     int dataCount = 0;
 
     final static int NONE = 0;
-    final static int SEARCH = 1;
+    //final static int SEARCH = 1;
     final static int EXIST = 2;
     int dbExist = NONE;
 
@@ -145,6 +145,7 @@ public class TimerActivity extends AppCompatActivity {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
                                 Log.d("ID exist", ": "+ document.getData());
+                                dbExist = EXIST;
                             } else {
                                 Log.d("No such document", "아이디 기록이 없네요 생성할게요^^");
                                 mtimedata = new StudytimeData(mDay, Integer.toString(mStudyTime));
@@ -180,7 +181,7 @@ public class TimerActivity extends AppCompatActivity {
                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                         String dbDay = document.getId();
                                         if(dataCount == 1) {
-                                            dbExist = EXIST;
+                                            dbExist = NONE;
                                         }
                                         dataCount--;
                                         if(dbDay.equals(mDay))
@@ -202,7 +203,7 @@ public class TimerActivity extends AppCompatActivity {
                                                     .collection("study").document(userID)
                                                     .collection("studytime").document(mDay);
                                             sample.set(mtimedata);
-                                            dbExist = SEARCH;
+                                            dbExist = EXIST;
                                         }
                                         else {
                                             if(dbExist == NONE) {
@@ -215,7 +216,7 @@ public class TimerActivity extends AppCompatActivity {
                                                         .collection("study").document(userID)
                                                         .collection("studytime").document(mDay);
                                                 sample.set(mtimedata);
-                                                dbExist = SEARCH;
+                                                dbExist = EXIST;
                                                 dataCount = 0;
                                             }
                                         }
